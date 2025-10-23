@@ -1,0 +1,25 @@
+{
+  "name": "kblgallery",
+  "version": "1.0.0",
+  "description": "KBL 관련 주요 커뮤니티 게시글을 모아보는 애그리게이터 웹앱",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "keywords": [
+    "kbl",
+    "basketball",
+    "scraper"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.12.2",
+    "cheerio": "^1.1.2",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "iconv-lite": "^0.7.0",
+    "morgan": "^1.10.1"
+  }
+}
