@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KBL 게시글 모음</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="page-header">
+      <div class="container">
+        <h1>KBL 게시글 모음</h1>
+        <p class="lead">
+          매니아, 디시인사이드 남자농구 마이너 갤러리, 에펨코리아 농구 게시판의 KBL 이슈를 한눈에 모아보세요.
+        </p>
+        <div class="meta">
+          <span id="last-updated">최근 갱신: -</span>
+          <button id="refresh-button" type="button" class="refresh-button">새로고침</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="sources" id="sources"></section>
+      <section class="guide">
+        <h2>수집 안내</h2>
+        <ul>
+          <li>각 커뮤니티의 비공개/로그인 전용 게시글은 포함되지 않습니다.</li>
+          <li>로봇 차단 등으로 인해 게시글이 수집되지 않을 경우, 개별 링크를 눌러 직접 확인할 수 있습니다.</li>
+          <li>목록은 최대 20개까지만 표시되며, 세부 내용 확인 시 원문 페이지로 이동합니다.</li>
+        </ul>
+      </section>
+    </main>
+
+    <template id="source-template">
+      <article class="source-card">
+        <header class="source-header">
+          <h2 class="source-title"></h2>
+          <a class="source-link" href="#" target="_blank" rel="noopener noreferrer">원문 바로가기</a>
+        </header>
+        <div class="status"></div>
+        <ul class="post-list"></ul>
+      </article>
+    </template>
+
+    <template id="post-template">
+      <li class="post-item">
+        <a class="post-link" href="#" target="_blank" rel="noopener noreferrer"></a>
+        <div class="post-meta"></div>
+      </li>
+    </template>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
