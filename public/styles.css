@@ -108,8 +108,8 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: rgba(7, 9, 15, 0.6);
-  backdrop-filter: blur(12px);
+  background: rgba(7, 9, 15, 0.15);
+  backdrop-filter: none;
 }
 
 .viewer__toolbar {
@@ -147,7 +147,7 @@ body {
   flex: 1;
   border: none;
   width: 100%;
-  background: #11161f;
+  background: #fff;
 }
 
 .viewer__hint {
