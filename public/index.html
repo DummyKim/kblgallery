@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KBL 게시글 모음</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="sidebar">
+        <header class="sidebar__header">
+          <h1>KBL 게시글 모음</h1>
+          <p class="sidebar__lead">원하는 커뮤니티를 눌러 오른쪽에서 바로 살펴보세요.</p>
+        </header>
+        <nav class="source-list" aria-label="KBL 커뮤니티 목록">
+          <button class="source-button is-active" data-url="https://mania.kr/board/bbs/board.php?bo_table=kbl" data-name="매니아 KBL 게시판">
+            매니아 KBL 게시판
+          </button>
+          <button class="source-button" data-url="https://gall.dcinside.com/mgallery/board/lists?id=kbl" data-name="디시인사이드 남자농구 마이너 갤러리">
+            디시인사이드 남자농구 마이너 갤러리
+          </button>
+          <button class="source-button" data-url="https://www.fmkorea.com/index.php?mid=basketball&category=47038632" data-name="에펨코리아 농구 게시판 KBL 탭">
+            에펨코리아 농구 게시판 KBL 탭
+          </button>
+        </nav>
+        <section class="sidebar__help">
+          <h2>이용 안내</h2>
+          <ul>
+            <li>오른쪽 프레임에 커뮤니티 원본 사이트가 그대로 표시됩니다.</li>
+            <li>일부 사이트는 보안 정책 때문에 프레임 표시가 안 될 수 있습니다.</li>
+            <li>그럴 경우 아래의 "새 창에서 열기" 링크를 이용해주세요.</li>
+          </ul>
+        </section>
+      </aside>
+      <main class="viewer" aria-live="polite">
+        <div class="viewer__toolbar">
+          <span id="current-source-name" class="viewer__title">매니아 KBL 게시판</span>
+          <a
+            id="open-source-link"
+            class="viewer__link"
+            href="https://mania.kr/board/bbs/board.php?bo_table=kbl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            새 창에서 열기
+          </a>
+        </div>
+        <iframe
+          id="community-frame"
+          title="KBL 커뮤니티 게시판"
+          src="https://mania.kr/board/bbs/board.php?bo_table=kbl"
+          sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
+        ></iframe>
+        <p class="viewer__hint">
+          화면이 비어 있을 경우, 위 "새 창에서 열기" 링크를 눌러서 직접 이동하세요.
+        </p>
+      </main>
+    </div>
+    <script src="app.js" defer></script>
+  </body>
+</html>
