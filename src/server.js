@@ -16,8 +16,28 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 const DEFAULT_HEADERS = {
   'User-Agent':
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+  'Accept':
+    'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
   'Accept-Language': 'ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7',
-  Referer: 'https://www.google.com/'
+  'Accept-Encoding': 'gzip, deflate, br',
+  'Cache-Control': 'no-cache',
+  Pragma: 'no-cache',
+  'Connection': 'keep-alive',
+  'Sec-CH-UA': '"Chromium";v="123", "Not:A-Brand";v="8"',
+  'Sec-CH-UA-Full-Version-List':
+    '"Chromium";v="123.0.6312.122", "Not:A-Brand";v="8.0.0.0"',
+  'Sec-CH-UA-Mobile': '?0',
+  'Sec-CH-UA-Platform': '"Windows"',
+  'Sec-CH-UA-Platform-Version': '"15.0.0"',
+  'Sec-CH-UA-Arch': '"x86"',
+  'Sec-CH-UA-Bitness': '"64"',
+  'Sec-Fetch-Dest': 'document',
+  'Sec-Fetch-Mode': 'navigate',
+  'Sec-Fetch-Site': 'none',
+  'Sec-Fetch-User': '?1',
+  'Upgrade-Insecure-Requests': '1',
+  'X-Forwarded-For': '121.78.72.10',
+  'X-Real-IP': '121.78.72.10'
 };
 
 const SOURCE_DEFINITIONS = {
@@ -93,9 +113,13 @@ app.listen(PORT, () => {
 
 async function fetchSource(source) {
   const response = await axios.get(source.homepage, {
-    headers: DEFAULT_HEADERS,
+    headers: {
+      ...DEFAULT_HEADERS,
+      Referer: source.homepage
+    },
     responseType: 'arraybuffer',
-    timeout: 15000
+    timeout: 15000,
+    maxRedirects: 5
   });
 
   const decoded = iconv.decode(response.data, source.encoding || 'UTF-8');
